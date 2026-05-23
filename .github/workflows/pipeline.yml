@@ -11,13 +11,12 @@ jobs:
         fetch-depth: 0
     - name: Package
       run: mvn package
-
- publish:
+  publish:
     runs-on: ubuntu-lastest
     needs: build
     permissions:
-      content: read
-      packages: wrtie
+      contents: read
+      packages: write
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-java@v3
@@ -29,4 +28,3 @@ jobs:
         run: mvn --batch-mode deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
