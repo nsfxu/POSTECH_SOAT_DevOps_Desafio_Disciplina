@@ -21,6 +21,11 @@ public class DataController {
                 return "The actual version is 2.2.0";
         }
 
+        @GetMapping("/version")
+        public String version() {
+                return "The actual version is 1.3.3.7";
+        }
+
         @GetMapping("/nations")
         public JsonNode getRandomNations() {
                 var objectMapper = new ObjectMapper();
